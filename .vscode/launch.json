@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProdGestorApplication<prodGestor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.frizelo.prodGestor.ProdGestorApplication",
+            "projectName": "prodGestor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.frizelo.prodGestor.excecao.SetorNotFoundException;
@@ -33,7 +32,7 @@ public class SetorControle {
         model.addAttribute("novoSetor", setor);
         
         List<Setor> setores  = setorServico.buscarTodosSetores(); // Mostrar a lista 
-		model.addAttribute("listaSetores, setores");
+		model.addAttribute("listaSetores", setores);
 
         return "/auth/admin/admin-setor";  
     }
@@ -51,20 +50,6 @@ public class SetorControle {
         setorServico.criarSetor(setor);
         attributes.addFlashAttribute("mensagem", "Setor salvo com sucesso!");
         return "redirect:/setor/novo";
-    }
-
-    @PostMapping("/buscar")
-    public String buscarSetores(Model model, @RequestParam("query") String query) {	
-		
-        if (query == null) {
-			return "redirect:/setor/novo";
-		}
-        //List<Setor> setores = setorServico.buscarPorQuery(query);
-        //model.addAttribute("listaSetores", setores);
-
-        Setor setor = new Setor();
-        model.addAttribute("novoSetor", setor);
-		return "/auth/admin/admin-setor";
     }
 
     @GetMapping("/apagar/{id}")
@@ -94,10 +79,10 @@ public class SetorControle {
     public String editarSetor(@PathVariable("id") long id, @ModelAttribute("objetoSetor")@Valid Setor setor, BindingResult erros){
         if (erros.hasErrors()){
             setor.setId(id);
-            return"/Setor/editar-Setor";
+            return"/auth/admin/admin-setor-editar";
         }
         setorServico.alterarSetor(setor);
-        return"redirect:/Setor/novo";
+        return"redirect:/setor/novo";
     }
 
 

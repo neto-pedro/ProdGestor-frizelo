@@ -70,7 +70,7 @@
                 <h5 class="mb-0"><i class="fas fa-plus-circle"></i> Cadastrar Novo Setor</h5>
             </div>
             <div class="card-body">
-                <form id="formSetor" th:action="@{/setor/gravar}" th:object="${novoSetor}" method="post">
+                <form id="formSetor" th:action="@{/setor/editar/{id}(id=${objetoSetor.id})}" th:object="${objetoSetor}" method="post">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label">Nome do Setor</label>
@@ -87,46 +87,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-
-        <!-- Listagem de Setores -->
-        <div class="card card-custom">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-list"></i> Setores Cadastrados</h5>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>Setor</th>
-                                <th>Usuários</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:if="${listaSetores.isEmpty()}">
-                                <td colspan="3">Não existem Veículos Setores cadastrados.</td>
-                            </tr>
-                            <tr th:each="setor : ${listaSetores}">
-                                <td><span th:text="${setor.id}"></span></td>
-                                <td><span th:text="${setor.nome}"></span></td>
-                                <td><span ></span></td>
-                                <td>
-                                   
-                                        <a class="fas fa-edit btn btn-sm btn-primary me-2" th:href="@{/setor/editar/{id}(id=${setor.id})}"></a>
-                                    </button>
-                                        <a class="fas fa-trash btn btn-sm btn-danger" th:href="@{/setor/apagar/{id}(id=${setor.id})}"
-                                        th:data-confirm-delete="|Você gostaria de apagar o Setor ${setor.nome}?|"
-                                        th:onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"></a>
-                                </td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

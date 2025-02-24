@@ -17,7 +17,7 @@ public class CarregadoraDados implements CommandLineRunner {
         String[] papeis = {"ADMIN", "USER"};
 
         for (String papelString: papeis) {
-			Papel papel = papelRepositorio.findyByPapel(papelString);
+			Papel papel = papelRepositorio.findByPapel(papelString);
 			if (papel == null) {
 				papel = new Papel(papelString);
 				papelRepositorio.save(papel);

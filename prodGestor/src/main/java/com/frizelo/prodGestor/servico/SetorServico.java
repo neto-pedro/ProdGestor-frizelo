@@ -31,7 +31,7 @@ public class SetorServico {
             return opt.get();
         }
         else{
-            throw new SetorNotFoundException("Boiadeiro com id : " + id + "não existe");
+            throw new SetorNotFoundException("Setor com id : " + id + "não existe");
         }
     }
 

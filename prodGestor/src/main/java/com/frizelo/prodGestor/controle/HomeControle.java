@@ -13,9 +13,5 @@ public class HomeControle {
         model.addAttribute("bemVindo", "Seja bem vindo ao Sistema de Gestão e Desempenho - Frizelo");
         return "publica-index";
     }
-    @RequestMapping("/login")   
-    public String login(){
-        return "login";
-    }
 
 }

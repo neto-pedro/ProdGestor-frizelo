@@ -140,7 +140,6 @@
                                     <th>Email</th>
                                     <th>Setor</th>
                                     <th>Tipo</th>
-                                    <th></th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -154,11 +153,6 @@
                                     <td><span th:text="${usuario.email}"></span></td>
                                     <td><span th:text="${usuario.setor.nome}"></span></td>
                                     <td><span  class="badge bg-secondary" th:text="${usuario.papel.papel}"></span></td>
-                                    <td>
-                                        <span class="badge " th:classappend="${usuario.ativo} ? ' bg-success' : 'bg-danger'"
-                                         th:text="${usuario.ativo} ? 'ATIVO' : 'NÃO ATIVO'"> </span>
-                                    </td>
-                    
                                     <td>            
                                         <a class="fas fa-edit btn btn-sm btn-primary me-2" th:href="@{/usuario/editar/{id}(id=${usuario.id})}"></a>
             

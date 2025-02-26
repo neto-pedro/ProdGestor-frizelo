@@ -109,7 +109,7 @@ public class UsuarioControle {
     
     
     @PostMapping("/editar/{id}")
-    public String editarUsuario(@PathVariable("id") long id, @ModelAttribute("objetoUsuario")@Valid Usuario usuario, BindingResult erros, Model model, RedirectAttributes attributes){
+    public String editarUsuario(@PathVariable("id") long id, @ModelAttribute("objetoUsuario")@Valid Usuario usuario, BindingResult erros, Model model){
         if (erros.hasErrors()){
             usuario.setId(id);
             List<Setor> setores = setorServico.buscarTodosSetores(); // Listar setor
@@ -120,7 +120,6 @@ public class UsuarioControle {
             return"/auth/admin/admin-usuario-editar";
         }
         usuarioServico.alterarUsuario(usuario);
-        attributes.addFlashAttribute("mensagem", "Usuário "+ usuario.getNome() +" alterado com sucesso!");
         return"redirect:/usuario/novo";
     }
     

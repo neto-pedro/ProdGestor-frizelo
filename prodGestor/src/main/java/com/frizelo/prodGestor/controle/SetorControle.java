@@ -44,7 +44,7 @@ public class SetorControle {
         if (erros.hasErrors()) {
             // Recarregar a lista de veículos em caso de erro de validação
             List<Setor> setores= setorServico.buscarTodosSetores();
-        model.addAttribute("listaSetores", setores);
+            model.addAttribute("listaSetores", setores);
             return "/auth/admin/admin-setor";
         }
         setorServico.criarSetor(setor);

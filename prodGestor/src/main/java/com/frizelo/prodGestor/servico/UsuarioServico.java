@@ -6,9 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.frizelo.prodGestor.excecao.SetorNotFoundException;
 import com.frizelo.prodGestor.excecao.UsuarioNotFoundException;
-import com.frizelo.prodGestor.modelo.Setor;
 import com.frizelo.prodGestor.modelo.Usuario;
 import com.frizelo.prodGestor.repositorio.UsuarioRepositorio;
 
@@ -33,7 +31,7 @@ public class UsuarioServico {
             return opt.get();
         }
         else{
-            throw new UsuarioNotFoundException("Usuario com id : " + id + "não existe");
+            throw new UsuarioNotFoundException("Usuario com ID: " + id + " não existe");
         }
     }
 

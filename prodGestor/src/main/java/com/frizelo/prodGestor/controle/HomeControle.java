@@ -14,4 +14,9 @@ public class HomeControle {
         return "publica-index";
     }
 
+    @RequestMapping("/login")   
+    public String login(){
+        return "login";
+    }
+
 }

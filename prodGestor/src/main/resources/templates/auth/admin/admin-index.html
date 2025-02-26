@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+	th:href="@{/bootstrap-5.3.3-dist/css/bootstrap.min.css}">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+<script th:src="@{/jquery-3.7.1-dist/jquery-3.7.1.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.3-dist/js/bootstrap.min.js}"></script>
+
+    <title>Admin</title>
+    <style> 
+       .sidebar {
+           background-color: #2c3e50;
+           height: 100vh;
+           position: fixed;
+           width: 250px;
+       }
+       
+       .main-content {
+           margin-left: 250px;
+           padding: 20px;
+       }
+       
+       .card-custom {
+           border-radius: 15px;
+           box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+           transition: transform 0.3s;
+       }
+       
+       .card-custom:hover {
+           transform: translateY(-5px);
+       }
+       
+       .process-table thead th {
+           background-color: #f8f9fa;
+       }
+    
+    </style>
+</head>
+<body>
+	<div th:replace="auth/admin/fragments/admin-nav :: nav"></div>
+		
+    <div class="main-content">
+        <div class="row">
+			<div class="col">
+				<h2> Olá Administrador</h2>
+			</div>
+		</div>
+    </div>
+
+</body>
+</html>

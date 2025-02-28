@@ -1,5 +1,12 @@
 package com.frizelo.prodGestor.modelo;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +19,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-public class Usuario {
+public class Usuario implements UserDetails{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,6 +101,18 @@ public class Usuario {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(this.papel.getPapel() == "ADMIN") return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+    
 
     
 }
